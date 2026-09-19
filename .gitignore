@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Original datasets
+data/raw_original/*
+data/source_simulator/initial/*
+data/source_simulator/incremental/*
+
+# Keep folders
+!data/raw_original/.gitkeep
+!data/source_simulator/initial/.gitkeep
+!data/source_simulator/incremental/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Power BI temp
+*.tmp
