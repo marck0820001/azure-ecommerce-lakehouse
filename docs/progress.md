@@ -35,20 +35,46 @@ Azure Data Factory
 ADLS Gen2 / landing
 ```
 
-## Next
+## Planned next milestones
 
-- [ ] Azure Databricks
+### Databricks and Bronze
+- [ ] Azure Databricks workspace
+- [ ] Cost-controlled compute / auto-termination
 - [ ] Secure Databricks → ADLS access
-- [ ] PySpark Bronze layer
-- [ ] Delta Lake tables
-- [ ] Silver transformations
-- [ ] Data Quality / Quarantine
-- [ ] Idempotent MERGE logic
-- [ ] Gold dimensional model
+- [ ] PySpark Bronze ingestion
+- [ ] Delta Lake Bronze tables
+- [ ] Technical ingestion metadata
+
+### Silver and data quality
+- [ ] Schema normalization
+- [ ] Type casting
+- [ ] Deduplication
+- [ ] Null and business-rule validation
+- [ ] Referential-integrity checks
+- [ ] Quarantine area
+- [ ] Curated Silver tables
+- [ ] Idempotent Delta MERGE logic
+
+### Gold and analytics
+- [ ] dim_customers
+- [ ] dim_products
+- [ ] dim_sellers
+- [ ] dim_date
+- [ ] fact_orders
+- [ ] fact_order_items
+- [ ] Business aggregations
+
+### Incremental control
 - [ ] Watermark / control table
+- [ ] Track last successful batch
+- [ ] Avoid unnecessary historical reprocessing
 - [ ] ADF + Databricks orchestration
-- [ ] Power BI
+
+### Delivery
+- [ ] Power BI dashboard
 - [ ] Automated tests
 - [ ] GitHub Actions CI
+- [ ] Export Azure artifacts
 - [ ] Final architecture diagram
-- [ ] Demo video
+- [ ] Technical documentation
+- [ ] End-to-end demo video
