@@ -82,31 +82,69 @@ Implemented:
 
 Raw datasets and generated batches are intentionally excluded from Git.
 
-## Next phase
+## Upcoming implementation
+
+### Phase 2 — Lakehouse processing
+
+- Create Azure Databricks workspace with cost-controlled compute.
+- Connect Databricks securely to ADLS Gen2 using Managed Identity / Access Connector.
+- Build the Bronze layer with PySpark.
+- Store Bronze data as Delta Lake tables.
+- Add ingestion metadata such as batch month, source file and ingestion timestamp.
+
+### Phase 3 — Data quality and Silver layer
+
+- Apply schema and data-type normalization.
+- Deduplicate records.
+- Validate nulls and business rules.
+- Implement referential-integrity checks.
+- Route invalid records to a quarantine area.
+- Build curated Silver tables.
+- Implement idempotent processing using Delta MERGE.
+
+### Phase 4 — Gold analytical model
+
+- Build dimensions for customers, products, sellers and dates.
+- Build order and order-item fact tables.
+- Create business aggregations such as daily sales, revenue and category performance.
+- Prepare datasets for analytical consumption.
+
+### Phase 5 — Incremental control and orchestration
+
+- Add a watermark/control table.
+- Track the last successfully processed batch.
+- Prevent unnecessary historical reprocessing.
+- Integrate ADF with Databricks.
+- Orchestrate the full flow from ingestion to Gold.
+
+### Phase 6 — Consumption, quality and delivery
+
+- Connect Power BI to Gold.
+- Create a compact business dashboard.
+- Add automated data-quality tests.
+- Add GitHub Actions CI.
+- Export and version Azure artifacts.
+- Complete final architecture documentation.
+- Record an end-to-end demo video.
+
+## Target final flow
 
 ```text
-Landing
-  ↓
+Olist / Source Simulator
+        ↓
+ADLS Gen2 - source-drop
+        ↓
+Azure Data Factory
+        ↓
+ADLS Gen2 - landing
+        ↓
 Azure Databricks + PySpark
-  ↓
-Bronze (Delta)
-  ↓
+        ↓
+Bronze / Delta Lake
+        ↓
 Silver + Data Quality
-  ↓
+        ↓
 Gold
-  ↓
+        ↓
 Power BI
 ```
-
-Planned work:
-
-- Azure Databricks workspace and secure ADLS access
-- Bronze ingestion with PySpark and Delta Lake
-- Silver transformations and quarantine
-- Idempotent MERGE processing
-- Gold dimensional model
-- Watermark/control layer
-- ADF + Databricks orchestration
-- Power BI
-- Automated tests and CI/CD
-- Final demo video
